@@ -1,8 +1,8 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.api;
+package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.api;
 
 
-import br.com.avaliao.avaliaodesafio.pessoa.application.api.request.PessoaRequest;
-import br.com.avaliao.avaliaodesafio.pessoa.application.api.response.PessoaResponse;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

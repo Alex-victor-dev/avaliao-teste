@@ -1,4 +1,4 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.api.request;
+package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request;
 
 import br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.request.EnderecoRequest;
 import lombok.AccessLevel;
