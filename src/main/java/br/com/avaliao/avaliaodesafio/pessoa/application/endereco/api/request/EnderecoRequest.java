@@ -1,5 +1,6 @@
 package br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.request;
 
+import br.com.avaliao.avaliaodesafio.pessoa.domain.Endereco;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,4 +12,6 @@ public class EnderecoRequest {
     private String cep;
     private String numero;
     private String cidade;
+
+
 }

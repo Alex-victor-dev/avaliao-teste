@@ -1,8 +1,9 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.api;
+package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api;
 
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api.PessoaAPI;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaResponse;
-import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.service.PessoaService;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.service.PessoaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

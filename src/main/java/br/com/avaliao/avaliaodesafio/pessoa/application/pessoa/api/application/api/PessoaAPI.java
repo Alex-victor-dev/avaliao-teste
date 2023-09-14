@@ -1,4 +1,4 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.api;
+package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api;
 
 
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
