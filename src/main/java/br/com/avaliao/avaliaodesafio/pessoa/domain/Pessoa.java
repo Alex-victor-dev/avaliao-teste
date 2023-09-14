@@ -27,8 +27,8 @@ public class Pessoa {
         this.nome = pessoaRequest.getNome();
         this.dataNascimento = pessoaRequest.getDataNascimento();
         this.enderecos = pessoaRequest.getEndereco().stream()
-                .map( Endereco::new )
-                .collect( Collectors.toList() );
+                .map(Endereco::new)
+                .collect(Collectors.toList());
     }
 }
 
