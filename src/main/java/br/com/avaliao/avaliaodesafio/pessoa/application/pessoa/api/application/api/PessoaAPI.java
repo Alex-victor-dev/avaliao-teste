@@ -6,11 +6,13 @@ import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.Pess
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("v1/pessoa")
 public interface PessoaAPI {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    PessoaResponse cadastraPessoa(@RequestBody PessoaRequest pessoaRequest);
+    PessoaResponse cadastraPessoa(@Valid @RequestBody PessoaRequest pessoaRequest);
 }
