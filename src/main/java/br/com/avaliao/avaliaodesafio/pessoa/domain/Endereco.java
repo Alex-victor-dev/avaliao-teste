@@ -30,4 +30,12 @@ public class Endereco {
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
     }
+
+    public Endereco(EnderecoRequest enderecoRequest, Pessoa pessoa) {
+        this.logradouro = enderecoRequest.getLogradouro();
+        this.cep = enderecoRequest.getCep();
+        this.numero = enderecoRequest.getNumero();
+        this.cidade = enderecoRequest.getCidade();
+        this.pessoa = pessoa;
+    }
 }

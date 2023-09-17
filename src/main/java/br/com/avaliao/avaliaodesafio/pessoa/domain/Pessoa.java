@@ -31,7 +31,11 @@ public class Pessoa {
         this.dataNascimento = pessoaRequest.getDataNascimento();
         this.enderecos = pessoaRequest.getEndereco().stream()
                 .map(Endereco::new)
-                .collect(Collectors.toList());
+                .collect( Collectors.toList());
+    }
+
+    public void relacionaEndereco(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 }
 
