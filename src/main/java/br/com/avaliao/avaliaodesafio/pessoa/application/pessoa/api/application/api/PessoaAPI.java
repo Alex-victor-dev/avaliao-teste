@@ -1,6 +1,7 @@
 package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api;
 
 
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaListResponse;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaResponse;
@@ -21,4 +22,10 @@ public interface PessoaAPI {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     List<PessoaListResponse> listaPessoas();
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    void alteraPessoa(@Valid @RequestBody PessoaAlteracaoRequest pessoaAlteracaoRequest,
+                      @PathVariable Long id);
+
 }

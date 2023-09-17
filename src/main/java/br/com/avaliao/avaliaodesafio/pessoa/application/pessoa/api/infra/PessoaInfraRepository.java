@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Log4j2
@@ -27,5 +28,14 @@ public class PessoaInfraRepository implements PessoaRepository {
         List<Pessoa> pessoas = pessoaInfraJpaRepository.findAll();
         log.info("[finaliza] PessoaInfraRepository - listaPessoas");
         return pessoas;
+    }
+
+    @Override
+    public Pessoa buscaPessoaId(Long id) {
+        log.info("[inicia] PessoaInfraRepository - buscaPessoaId");
+        Pessoa pessoa = pessoaInfraJpaRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Pessoa com ID "));
+        log.info("[finaliza] PessoaInfraRepository - buscaPessoaId");
+        return pessoa;
     }
 }

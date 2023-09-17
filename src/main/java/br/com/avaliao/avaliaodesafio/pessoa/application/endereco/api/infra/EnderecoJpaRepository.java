@@ -1,4 +1,4 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.application.repository;
+package br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.infra;
 
 import br.com.avaliao.avaliaodesafio.pessoa.domain.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;

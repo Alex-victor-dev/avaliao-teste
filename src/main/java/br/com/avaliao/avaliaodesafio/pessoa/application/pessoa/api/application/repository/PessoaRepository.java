@@ -8,4 +8,6 @@ public interface PessoaRepository {
     Pessoa salvaPessoa(Pessoa pessoa);
 
     List<Pessoa> listaPessoas();
+
+    Pessoa buscaPessoaId(Long id);
 }

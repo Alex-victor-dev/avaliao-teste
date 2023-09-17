@@ -1,5 +1,6 @@
 package br.com.avaliao.avaliaodesafio.pessoa.domain;
 
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -37,6 +38,11 @@ public class Pessoa {
     public void relacionaEndereco(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
+
+    public void alteraCadastro(PessoaAlteracaoRequest pessoaAlteracaoRequest) {
+        this.nome = pessoaAlteracaoRequest.getNome();
+    }
+
 }
 
 

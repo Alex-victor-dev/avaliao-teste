@@ -1,6 +1,7 @@
 package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api;
 
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.service.PessoaService;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaListResponse;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaResponse;
@@ -31,5 +32,12 @@ public class PessoaController implements PessoaAPI {
         List<PessoaListResponse> listaPessoas = pessoaService.listaPessoas();
         log.info("[finaliza] PessoaController - listaPessoa");
         return listaPessoas;
+    }
+
+    @Override
+    public void alteraPessoa(PessoaAlteracaoRequest pessoaAlteracaoRequest, Long id) {
+        log.info("[inicia] PessoaController - alteraPessoa");
+        pessoaService.alteraPessoa(pessoaAlteracaoRequest, id);
+        log.info("[finaliza] PessoaController - alteraPessoa");
     }
 }

@@ -1,5 +1,6 @@
-package br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.application.repository;
+package br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.infra;
 
+import br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.application.repository.EnderecoRepository;
 import br.com.avaliao.avaliaodesafio.pessoa.domain.Endereco;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -9,7 +10,7 @@ import java.util.List;
 @Log4j2
 @Repository
 @RequiredArgsConstructor
-public class EnderecoInfraRepository implements EnderecoRepository {
+public class EnderecoInfraJpaRepository implements EnderecoRepository {
 
     private final EnderecoJpaRepository enderecoJpaRepository;
     @Override

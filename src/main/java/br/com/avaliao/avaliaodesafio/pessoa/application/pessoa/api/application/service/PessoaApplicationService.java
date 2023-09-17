@@ -2,6 +2,7 @@ package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.
 
 import br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.application.repository.EnderecoRepository;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.repository.PessoaRepository;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaListResponse;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaResponse;
@@ -42,5 +43,15 @@ public class PessoaApplicationService implements PessoaService {
         List<Endereco> enderecos = enderecoRepository.listaEnderecosDaPessoa();
         log.info("[finaliza] PessoaApplicationService - listaPessoas");
         return PessoaListResponse.converte(pessoas,enderecos);
+    }
+
+    @Override
+    public void alteraPessoa(PessoaAlteracaoRequest pessoaAlteracaoRequest, Long id) {
+        log.info("[inicia] PessoaApplicationService - alteraPessoa");
+        Pessoa pessoa = pessoaRepository.buscaPessoaId(id);
+        pessoa.alteraCadastro(pessoaAlteracaoRequest);
+        pessoaRepository.salvaPessoa(pessoa);
+        log.info("[finaliza] PessoaApplicationService - alteraPessoa");
+
     }
 }
