@@ -40,4 +40,12 @@ public class PessoaController implements PessoaAPI {
         pessoaService.alteraPessoa(pessoaAlteracaoRequest, id);
         log.info("[finaliza] PessoaController - alteraPessoa");
     }
+
+    @Override
+    public PessoaDetalhadaResponse detalhaPessoa(Long id) {
+        log.info("[inicia] PessoaController - detalhaPessoa");
+        PessoaDetalhadaResponse pessoaDetalhada = pessoaService.detalhaPessoaPorId(id);
+        log.info("[finaliza] PessoaController - detalhaPessoa");
+        return pessoaDetalhada;
+    }
 }

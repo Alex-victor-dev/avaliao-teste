@@ -25,24 +25,25 @@ public class Pessoa {
     @NotNull
     private LocalDate dataNascimento;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
-    private List<Endereco> enderecos = new ArrayList<>();
+    private List<Endereco> converteEnderecos = new ArrayList<>();
 
     public Pessoa(PessoaRequest pessoaRequest) {
         this.nome = pessoaRequest.getNome();
         this.dataNascimento = pessoaRequest.getDataNascimento();
-        this.enderecos = pessoaRequest.getEndereco().stream()
+        this.converteEnderecos = pessoaRequest.getEndereco().stream()
                 .map(Endereco::new)
                 .collect( Collectors.toList());
-    }
-
-    public void relacionaEndereco(List<Endereco> enderecos) {
-        this.enderecos = enderecos;
     }
 
     public void alteraCadastro(PessoaAlteracaoRequest pessoaAlteracaoRequest) {
         this.nome = pessoaAlteracaoRequest.getNome();
     }
 
-}
+    public void relacionaEndereco(List<Endereco> enderecos) {
+        this.converteEnderecos = enderecos;
+    }
+
+    }
+
 
 

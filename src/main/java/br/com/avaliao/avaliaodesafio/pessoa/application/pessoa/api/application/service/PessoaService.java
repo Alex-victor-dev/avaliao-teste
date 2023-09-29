@@ -1,5 +1,6 @@
 package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.service;
 
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api.PessoaDetalhadaResponse;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.response.PessoaListResponse;
@@ -13,4 +14,6 @@ public interface PessoaService {
     List<PessoaListResponse> listaPessoas();
 
     void alteraPessoa(PessoaAlteracaoRequest pessoaAlteracaoRequest, Long id);
+
+    PessoaDetalhadaResponse detalhaPessoaPorId(Long id);
 }

@@ -28,4 +28,8 @@ public interface PessoaAPI {
     void alteraPessoa(@Valid @RequestBody PessoaAlteracaoRequest pessoaAlteracaoRequest,
                       @PathVariable Long id);
 
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    PessoaDetalhadaResponse detalhaPessoa(@PathVariable Long id);
+
 }

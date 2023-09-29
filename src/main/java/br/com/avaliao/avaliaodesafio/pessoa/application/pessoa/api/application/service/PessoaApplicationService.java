@@ -1,6 +1,7 @@
 package br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.service;
 
 import br.com.avaliao.avaliaodesafio.pessoa.application.endereco.api.application.repository.EnderecoRepository;
+import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.api.PessoaDetalhadaResponse;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.application.repository.PessoaRepository;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaAlteracaoRequest;
 import br.com.avaliao.avaliaodesafio.pessoa.application.pessoa.api.request.PessoaRequest;
@@ -26,16 +27,14 @@ public class PessoaApplicationService implements PessoaService {
     public PessoaResponse cadastraPessoa(PessoaRequest pessoaRequest) {
         log.info("[inicia] PessoaApplicationService - cadastraPessoa");
         Pessoa pessoa = (new Pessoa(pessoaRequest));
-        List<Endereco> enderecos = pessoaRequest.getEndereco().stream()
-                .map(enderecoRequest -> new Endereco(enderecoRequest, pessoa))
-                .collect( Collectors.toList());
+        List<Endereco> enderecos = pessoaRequest.converterEnderecosDeRequest(pessoaRequest,pessoa);
         pessoa.relacionaEndereco(enderecos);
         pessoaRepository.salvaPessoa(pessoa);
-        enderecoRepository.salvaEnderecosAsociadoApessoa(pessoa.getEnderecos());
+        enderecoRepository.salvaEnderecosAsociadoApessoa(pessoa.getConverteEnderecos());
         log.info("[finaliza] PessoaApplicationService - cadastraPessoa");
-        return new PessoaResponse(pessoa, pessoa.getEnderecos());
+        return new PessoaResponse(pessoa, pessoa.getConverteEnderecos());
     }
-
+    
     @Override
     public List<PessoaListResponse> listaPessoas() {
         log.info("[inicia] PessoaApplicationService - listaPessoas");
@@ -53,5 +52,13 @@ public class PessoaApplicationService implements PessoaService {
         pessoaRepository.salvaPessoa(pessoa);
         log.info("[finaliza] PessoaApplicationService - alteraPessoa");
 
+    }
+
+    @Override
+    public PessoaDetalhadaResponse detalhaPessoaPorId(Long id) {
+        log.info("[inicia] PessoaApplicationService - detalhaPessoaPorId");
+        Pessoa pessoa = pessoaRepository.buscaPessoaId(id);
+        List<Endereco> listaDeEndereco = enderecoRepository.listaEnderecosDaPessoa();
+        return new PessoaDetalhadaResponse(pessoa,listaDeEndereco);
     }
 }
